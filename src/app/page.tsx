@@ -1,28 +1,42 @@
-// src/app/page.tsx
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-8 bg-white text-black">
-      <h1 className="text-4xl font-bold mb-6 text-center">
-        Bienvenue sur Prifica Health 🚑
-      </h1>
-      <p className="text-lg text-center max-w-2xl mb-10">
-        Plateforme marocaine innovante pour accéder à des soins médicaux de qualité sans avance de frais.
-        Connectez-vous aux meilleurs professionnels de santé et bénéficiez du soutien de votre assurance.
-      </p>
+    <main className="min-h-screen flex flex-col justify-center items-center bg-gray-50 px-6 py-12">
+      <header className="max-w-4xl text-center">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
+          Bienvenue sur Prifica Health
+        </h1>
+        <p className="text-lg text-gray-700 mb-8">
+          Votre plateforme de santé digitale — connectez patients, prestataires et assurances en toute simplicité.
+        </p>
+      </header>
 
-      <div className="flex flex-col sm:flex-row gap-4">
-        <a
-          href="/services"
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-        >
-          Explorer les services
-        </a>
-        <a
-          href="/about"
-          className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition"
-        >
-          En savoir plus
-        </a>
+      <div className="flex flex-col sm:flex-row gap-6 items-center max-w-4xl w-full">
+        <div className="flex flex-col gap-4 sm:w-1/2">
+          <Link href="/signup">
+            <a className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-md text-center hover:bg-blue-700 transition">
+              S'inscrire
+            </a>
+          </Link>
+          <Link href="/login">
+            <a className="border border-blue-600 text-blue-600 font-semibold py-3 px-6 rounded-md text-center hover:bg-blue-100 transition">
+              Se connecter
+            </a>
+          </Link>
+        </div>
+
+        <div className="sm:w-1/2">
+          <Image
+            src="/healthcare-illustration.png"
+            alt="Illustration santé"
+            width={500}
+            height={300}
+            className="rounded-lg shadow-lg"
+            priority
+          />
+        </div>
       </div>
     </main>
   );
